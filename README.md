@@ -25,9 +25,7 @@ The frontend provides a clean dashboard-based interface for management users and
 | Resource              | Link                                                                                                              |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | **GitHub Repository** | [Apartment & Tenant Management System](https://github.com/tahirabatool218-uoe/apartment-tenant-management-system) |
-| **Live Deployment**   | `Coming Soon`                                                                                                     |
-
-> **Deployment:** The live deployment link will be added here after the project is deployed.
+| **Live Deployment**   | https://apartment-tenant-management-system-axo783eka.vercel.app                                               |
 
 ---
 
