@@ -1,0 +1,467 @@
+/* =========================================================
+   Admin Management Page
+========================================================= */
+
+.admin-management-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(450px, 1.15fr);
+  gap: 24px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   Messages
+========================================================= */
+
+.admin-message {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-error {
+  background: #fff1f0;
+  color: #c0392b;
+  border: 1px solid #ffd6d2;
+}
+
+.admin-success {
+  background: #edf9f1;
+  color: #218838;
+  border: 1px solid #ccebd5;
+}
+
+
+/* =========================================================
+   Cards
+========================================================= */
+
+.admin-form-card,
+.admin-list-card {
+  background: #ffffff;
+  border: 1px solid #e9edf3;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(25, 42, 70, 0.05);
+}
+
+
+/* =========================================================
+   Card Header
+========================================================= */
+
+.admin-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.admin-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff8d6;
+  color: #c79a00;
+
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.admin-card-header h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.admin-card-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #7b8494;
+}
+
+
+/* =========================================================
+   Admin Form
+========================================================= */
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.admin-form .form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-form .form-group input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #dfe4eb;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-form .form-group input::placeholder {
+  color: #a3aab5;
+}
+
+.admin-form .form-group input:focus {
+  border-color: #e2b900;
+  box-shadow: 0 0 0 3px rgba(226, 185, 0, 0.12);
+}
+
+
+/* =========================================================
+   Create Admin Button
+========================================================= */
+
+.admin-submit-button {
+  width: 100%;
+
+  margin-top: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #e6bd00;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-submit-button:hover:not(:disabled) {
+  background: #d4ad00;
+  box-shadow: 0 4px 12px rgba(212, 173, 0, 0.22);
+  transform: translateY(-1px);
+}
+
+.admin-submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   Admin List
+========================================================= */
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-list-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px;
+
+  border: 1px solid #edf0f4;
+  border-radius: 11px;
+
+  background: #fbfcfd;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-list-item:hover {
+  border-color: #e6d37a;
+  box-shadow: 0 3px 10px rgba(25, 42, 70, 0.04);
+}
+
+
+/* =========================================================
+   Admin Avatar
+========================================================= */
+
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #fff4bd;
+  color: #b18b00;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   Admin Information
+========================================================= */
+
+.admin-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  flex: 1;
+}
+
+.admin-info strong {
+  color: #273142;
+  font-size: 14px;
+  font-weight: 650;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #7b8494;
+  font-size: 12px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-info span svg {
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   Admin Actions
+========================================================= */
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.admin-role {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 6px 9px;
+
+  border-radius: 7px;
+
+  background: #fff8d9;
+  color: #a27e00;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-role svg {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   Delete Button
+========================================================= */
+
+.delete-admin-button {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #f0d8d5;
+  border-radius: 8px;
+
+  background: #fff7f6;
+  color: #d9534f;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.delete-admin-button:hover {
+  background: #d9534f;
+  border-color: #d9534f;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   Empty State
+========================================================= */
+
+.admin-empty-state {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px 20px;
+}
+
+.admin-empty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+
+  background: #fff8d9;
+  color: #c49a00;
+
+  font-size: 22px;
+}
+
+.admin-empty-state h4 {
+  margin: 0 0 7px;
+
+  color: #374151;
+
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.admin-empty-state p {
+  max-width: 300px;
+
+  margin: 0;
+
+  color: #8a93a1;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   Responsive - Tablet
+========================================================= */
+
+@media (max-width: 1000px) {
+  .admin-management-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   Responsive - Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+  .admin-form-card,
+  .admin-list-card {
+    padding: 18px;
+    border-radius: 13px;
+  }
+
+  .admin-card-header {
+    gap: 11px;
+  }
+
+  .admin-card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .admin-card-header h3 {
+    font-size: 16px;
+  }
+
+  .admin-list-item {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .admin-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .admin-info {
+    max-width: calc(100% - 58px);
+  }
+
+  .admin-role {
+    margin-left: auto;
+  }
+}

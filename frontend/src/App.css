@@ -1,0 +1,28 @@
+.app {
+  min-height: 100vh;
+}
+
+.page-container {
+  width: 100%;
+  padding: 24px;
+}
+
+.primary-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.primary-button:hover {
+  background-color: #1d4ed8;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
