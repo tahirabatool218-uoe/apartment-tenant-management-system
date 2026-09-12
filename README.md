@@ -14,18 +14,21 @@ The system is designed around three user roles:
 * **Admin** — manages apartments and tenants.
 * **User** — browses available apartments and views apartment details.
 
-The backend provides RESTful APIs with JWT authentication, protected routes, role-based authorization, Mongoose models, validation, relationship handling, and centralized error handling.
+The backend provides RESTful APIs with JWT authentication, protected routes, role-based authorization, Mongoose models, validation, relationship handling, CORS configuration, and centralized error handling.
 
 The frontend provides a clean dashboard-based interface for management users and a simplified apartment browsing experience for normal users.
+
+The application is deployed using **Vercel for the frontend**, **Railway for the backend**, and **MongoDB Atlas for database storage**.
 
 ---
 
 ## Project Links
 
-| Resource              | Link                                                                                                              |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **GitHub Repository** | [Apartment & Tenant Management System](https://github.com/tahirabatool218-uoe/apartment-tenant-management-system) |
-| **Live Deployment**   | https://apartment-tenant-management-system-axo783eka.vercel.app                                               |
+| Resource                | Link                                                                                                              |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **GitHub Repository**   | [Apartment & Tenant Management System](https://github.com/tahirabatool218-uoe/apartment-tenant-management-system) |
+| **Frontend Deployment** | https://apartment-tenant-management-system-sable.vercel.app                                                       |
+| **Backend API**         | https://apartment-tenant-management-system-production.up.railway.app                                              |
 
 ---
 
@@ -42,6 +45,7 @@ The frontend provides a clean dashboard-based interface for management users and
 * Authentication token expiration
 * Current-user authentication endpoint
 * Public registration always creates a normal `user` account
+* Role-based frontend redirection after login
 
 ### Apartment Management
 
@@ -128,6 +132,7 @@ Normal users have a simplified interface where they can:
 * Filter apartments
 * View apartment details
 * Check apartment availability
+* Logout
 
 Normal users cannot:
 
@@ -195,6 +200,7 @@ Permissions:
 * React Icons
 * CSS
 * JavaScript / JSX
+* Vite
 
 ### Backend
 
@@ -206,6 +212,17 @@ Permissions:
 * bcryptjs
 * CORS
 * dotenv
+
+### Database
+
+* MongoDB Atlas
+* Mongoose
+
+### Deployment
+
+* Vercel — Frontend
+* Railway — Backend API
+* MongoDB Atlas — Database
 
 ### Development Tools
 
@@ -264,7 +281,16 @@ Permissions:
 
 ## Database Models
 
-The application uses MongoDB with Mongoose.
+The application uses **MongoDB Atlas** with the `apartment_management` database and **Mongoose** for database modeling.
+
+The main collections are:
+
+```text
+apartment_management
+├── users
+├── apartments
+└── tenants
+```
 
 ### User
 
@@ -284,6 +310,8 @@ superadmin
 admin
 user
 ```
+
+Passwords are securely hashed before being stored in the database.
 
 ### Apartment
 
@@ -331,8 +359,10 @@ The application uses JWT-based authentication.
 2. Backend validates the request.
 3. Password is hashed using bcrypt.
 4. User is created with the `user` role.
-5. JWT token is generated.
-6. User receives authentication credentials.
+5. The user is redirected to the login page.
+6. The user can then sign in using the registered credentials.
+
+Public registration does not allow users to select or create an Admin or Super Admin role.
 
 ### Login
 
@@ -342,6 +372,18 @@ The application uses JWT-based authentication.
 4. JWT token is generated.
 5. User role is returned with the authenticated user information.
 6. Frontend redirects the user according to their role.
+
+The current role-based login behavior is:
+
+```text
+Super Admin / Admin
+        ↓
+    Dashboard
+
+User
+        ↓
+    Apartments
+```
 
 ### Role-Based Access
 
@@ -400,10 +442,33 @@ A centralized error-handling middleware is used to handle backend errors and pro
 
 ---
 
+## Frontend API Integration
+
+The React frontend communicates with the Express backend using **Axios**.
+
+The frontend API service is configured to communicate with the deployed Railway backend API.
+
+The production architecture is:
+
+```text
+React Frontend
+     ↓
+    Axios
+     ↓
+Railway Express API
+     ↓
+MongoDB Atlas
+```
+
+CORS is configured on the backend to allow communication between the deployed frontend and backend.
+
+---
+
 ## Project Structure
 
 ```text
-apartment-management-system/
+apartment-tenant-management-system/
+
 ├── backend/
 │   ├── config/
 │   │   └── db.js
@@ -428,6 +493,7 @@ apartment-management-system/
 │   │   └── tenantRoutes.js
 │   ├── package.json
 │   └── server.js
+│
 ├── frontend/
 │   ├── public/
 │   ├── src/
@@ -463,6 +529,7 @@ apartment-management-system/
 │   ├── index.html
 │   ├── package.json
 │   └── vite.config.js
+│
 ├── package.json
 └── README.md
 ```
@@ -484,8 +551,10 @@ JWT_SECRET=your_jwt_secret
 | Variable     | Description                            |
 | ------------ | -------------------------------------- |
 | `PORT`       | Backend server port                    |
-| `MONGO_URI`  | MongoDB connection string              |
+| `MONGO_URI`  | MongoDB Atlas connection string        |
 | `JWT_SECRET` | Secret key used for JWT authentication |
+
+For production deployment, environment variables are configured securely in the **Railway backend service** instead of being committed to the repository.
 
 > Never commit the actual `.env` file or secret credentials to GitHub.
 
@@ -575,7 +644,7 @@ The system maintains a relationship between tenants and apartments using Mongoos
 Apartment
      ↑
      │
-Tenant
+   Tenant
 ```
 
 When a tenant is assigned to an apartment, the apartment status is automatically updated.
@@ -595,6 +664,45 @@ The project implements several basic security practices:
 * Environment variables for secrets
 * Password excluded from authenticated user responses
 * Backend-level authorization checks
+* CORS configuration for frontend-backend communication
+* Public registration restricted to the `user` role
+
+---
+
+## Deployment
+
+The application is deployed using the following architecture:
+
+```text
+                    ┌──────────────────────┐
+                    │   React Frontend     │
+                    │       Vercel         │
+                    └──────────┬───────────┘
+                               │
+                              Axios
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Express Backend    │
+                    │      Railway         │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   MongoDB Atlas      │
+                    │ apartment_management │
+                    └──────────────────────┘
+```
+
+### Production Services
+
+* **Frontend:** Vercel
+* **Backend:** Railway
+* **Database:** MongoDB Atlas
+
+The frontend uses the deployed Railway API as its production backend.
+
+Environment variables such as `MONGO_URI` and `JWT_SECRET` are configured through Railway's environment variable settings.
 
 ---
 
@@ -609,6 +717,7 @@ This project was developed to practice and demonstrate the following concepts:
 * Middleware
 * Error handling
 * MongoDB
+* MongoDB Atlas
 * Mongoose
 * Schemas and models
 * CRUD operations
@@ -621,8 +730,11 @@ This project was developed to practice and demonstrate the following concepts:
 * Axios API communication
 * React Router
 * Context API
+* CORS
+* Environment variables
 * Git and GitHub workflow
 * API testing with Postman
+* Full-stack deployment using Vercel and Railway
 
 ---
 
@@ -636,7 +748,6 @@ Possible future improvements include:
 * Notifications
 * Advanced reporting
 * Profile management
-* Improved deployment configuration
 * Production-level validation and monitoring
 
 These are planned improvements and are **not part of the current implementation**.
@@ -656,6 +767,7 @@ This project fulfills the main requirements of the **Node.js, Express & MongoDB*
 * ✅ Error handling middleware
 * ✅ At least two API resources
 * ✅ React frontend connected with REST APIs
+* ✅ Deployed frontend and backend
 
 ### Main Resources
 
@@ -672,6 +784,7 @@ Tenants
 **Tahira Batool**
 
 BS Computer Science
+
 University of Education
 
 GitHub: [tahirabatool218-uoe](https://github.com/tahirabatool218-uoe)
