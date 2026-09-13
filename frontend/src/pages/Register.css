@@ -1,108 +1,138 @@
-/* ========================================
-   Register Page
-======================================== */
+/* ================================
+   REGISTER PAGE
+================================ */
 
 .register-page {
   min-height: 100vh;
+  padding: 28px 20px 50px;
+  background: #f6f8fc;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px;
-  background: #f5f7fb;
+
   box-sizing: border-box;
 }
 
-/* ========================================
-   Authentication Header
-======================================== */
+/* ================================
+   AUTHENTICATION HEADER
+================================ */
 
 .auth-header {
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto 24px;
+  max-width: 1120px;
+  min-height: 64px;
+  margin: 0 auto 34px;
+  padding: 0 18px;
+
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 14px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
 
   box-sizing: border-box;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
 }
 
-.auth-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+/* Left brand button */
 
-  padding: 0;
+.auth-brand {
   border: none;
   background: transparent;
+  padding: 0;
 
-  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+
   cursor: pointer;
 }
 
-.auth-brand-icon {
-  width: 34px;
-  height: 34px;
+/* A icon in header */
 
-  display: inline-flex;
+.auth-brand-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 9px;
   background: #2563eb;
   color: #ffffff;
 
+  border-radius: 10px;
+
   font-size: 18px;
   font-weight: 700;
+
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
+
+/* Apartment Management text */
 
 .auth-brand-name {
-  font-size: 16px;
+  color: #172033;
+  font-size: 18px;
   font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
+/* Back to website button */
+
 .auth-back-link {
-  padding: 8px 0;
+  border: 1px solid #d8e0eb;
+  background: #ffffff;
 
-  border: none;
-  background: transparent;
+  color: #475569;
 
-  color: #6b7280;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 9px 15px;
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
 
   cursor: pointer;
-  transition: color 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .auth-back-link:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
   color: #2563eb;
+  transform: translateY(-1px);
 }
 
-/* ========================================
-   Register Card
-======================================== */
+/* ================================
+   REGISTER CARD
+================================ */
 
 .register-card {
   width: 100%;
-  max-width: 430px;
+  max-width: 450px;
 
-  padding: 40px;
+  padding: 36px 38px;
 
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
-
-  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e7ebf1;
+  border-radius: 18px;
 
   box-sizing: border-box;
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
 }
 
-/* ========================================
-   Register Brand
-======================================== */
+/* ================================
+   REGISTER BRAND
+================================ */
 
 .register-brand {
   text-align: center;
@@ -113,72 +143,100 @@
   width: 52px;
   height: 52px;
 
-  margin: 0 auto 16px;
+  margin: 0 auto 14px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 12px;
   background: #2563eb;
   color: #ffffff;
 
-  font-size: 24px;
+  border-radius: 13px;
+
+  font-size: 23px;
   font-weight: 700;
+
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
 }
 
 .register-brand h1 {
-  margin: 0 0 8px;
+  margin: 0 0 7px;
 
-  color: #111827;
+  color: #172033;
+
   font-size: 25px;
+  line-height: 1.25;
   font-weight: 700;
 }
 
 .register-brand p {
   margin: 0;
 
-  color: #6b7280;
+  color: #64748b;
+
   font-size: 14px;
+  line-height: 1.5;
 }
 
-/* ========================================
-   Register Form
-======================================== */
+/* ================================
+   REGISTER ERROR
+================================ */
+
+.register-error {
+  margin-bottom: 20px;
+  padding: 11px 13px;
+
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+
+  color: #dc2626;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ================================
+   REGISTER FORM
+================================ */
 
 .register-form {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
 }
 
-.register-form .form-group {
-  margin-bottom: 18px;
+/* Form group */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
-.register-form label {
-  display: block;
-  margin-bottom: 8px;
+.form-group label {
+  color: #334155;
 
-  color: #374151;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
-.register-form input {
+.form-group input {
   width: 100%;
-  height: 46px;
+  height: 45px;
 
-  padding: 0 14px;
+  padding: 0 13px;
 
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  border: 1px solid #d7dee8;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #172033;
+
+  font-size: 14px;
 
   outline: none;
-  background: #ffffff;
-  color: #111827;
-
-  font-family: inherit;
-  font-size: 15px;
-
   box-sizing: border-box;
 
   transition:
@@ -186,18 +244,18 @@
     box-shadow 0.2s ease;
 }
 
-.register-form input::placeholder {
-  color: #9ca3af;
+.form-group input::placeholder {
+  color: #94a3b8;
 }
 
-.register-form input:focus {
+.form-group input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* ========================================
-   Register Button
-======================================== */
+/* ================================
+   REGISTER BUTTON
+================================ */
 
 .register-button {
   width: 100%;
@@ -206,61 +264,50 @@
   margin-top: 4px;
 
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
 
   background: #2563eb;
   color: #ffffff;
 
-  font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: background 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .register-button:hover:not(:disabled) {
   background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
 }
 
 .register-button:disabled {
-  opacity: 0.7;
+  opacity: 0.65;
   cursor: not-allowed;
 }
 
-/* ========================================
-   Register Error
-======================================== */
-
-.register-error {
-  margin-bottom: 18px;
-  padding: 10px 12px;
-
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-
-  background: #fef2f2;
-  color: #b91c1c;
-
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* ========================================
-   Register Footer
-======================================== */
+/* ================================
+   REGISTER FOOTER
+================================ */
 
 .register-footer {
-  margin: 22px 0 0;
+  margin: 25px 0 0;
 
   text-align: center;
 
-  color: #6b7280;
+  color: #64748b;
+
   font-size: 13px;
 }
 
 .register-footer button {
+  margin-left: 3px;
+
   padding: 0;
 
   border: none;
@@ -268,7 +315,6 @@
 
   color: #2563eb;
 
-  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
 
@@ -276,38 +322,47 @@
 }
 
 .register-footer button:hover {
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
-/* ========================================
-   Responsive Design
-======================================== */
+/* ================================
+   RESPONSIVE
+================================ */
 
 @media (max-width: 600px) {
   .register-page {
-    padding: 18px 14px 30px;
+    padding: 16px 14px 35px;
   }
 
   .auth-header {
-    margin-bottom: 20px;
+    min-height: 60px;
+    margin-bottom: 25px;
+    padding: 0 12px;
+    border-radius: 12px;
   }
 
   .auth-brand-name {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .auth-brand-icon {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     font-size: 16px;
   }
 
   .auth-back-link {
-    font-size: 13px;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
   .register-card {
-    padding: 28px 22px;
-    border-radius: 14px;
+    padding: 30px 22px;
+    border-radius: 15px;
+  }
+
+  .register-brand h1 {
+    font-size: 22px;
   }
 }

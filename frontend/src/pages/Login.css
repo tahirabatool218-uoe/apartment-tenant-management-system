@@ -1,136 +1,117 @@
-/* ========================================
+/* ================================
    LOGIN PAGE
-======================================== */
+================================ */
 
 .login-page {
   min-height: 100vh;
-
+  padding: 28px 20px 50px;
+  background: #f6f8fc;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 28px 24px 40px;
-
-  background: #f5f7fb;
-
   box-sizing: border-box;
 }
 
-
-/* ========================================
+/* ================================
    AUTHENTICATION HEADER
-======================================== */
+================================ */
 
 .auth-header {
   width: 100%;
-  max-width: 1080px;
+  max-width: 1120px;
+  min-height: 64px;
+  margin: 0 auto 34px;
+  padding: 0 18px;
 
-  min-height: 58px;
-
-  margin: 0 auto 30px;
-  padding: 0 4px;
+  background: #ffffff;
+  border: 1px solid #e5eaf1;
+  border-radius: 14px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  gap: 20px;
-
   box-sizing: border-box;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
 }
 
-
-/* ========================================
-   AUTH BRAND
-======================================== */
+/* Left brand button */
 
 .auth-brand {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 11px;
-
-  padding: 0;
-
   border: none;
   background: transparent;
+  padding: 0;
 
-  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
 
   cursor: pointer;
 }
+
+/* A icon in header */
 
 .auth-brand-icon {
   width: 38px;
   height: 38px;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 10px;
 
   background: #2563eb;
   color: #ffffff;
 
-  font-size: 19px;
-  font-weight: 700;
-
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
-}
-
-.auth-brand-name {
-  color: #111827;
+  border-radius: 10px;
 
   font-size: 18px;
   font-weight: 700;
 
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* Apartment Management text */
+
+.auth-brand-name {
+  color: #172033;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: -0.2px;
 }
 
-
-/* ========================================
-   BACK TO WEBSITE
-======================================== */
+/* Back to website button */
 
 .auth-back-link {
-  display: inline-flex;
-  align-items: center;
+  border: 1px solid #d8e0eb;
+  background: #ffffff;
 
-  gap: 6px;
+  color: #475569;
 
-  padding: 9px 13px;
+  padding: 9px 15px;
+  border-radius: 9px;
 
-  border: 1px solid transparent;
-  border-radius: 8px;
-
-  background: transparent;
-  color: #64748b;
-
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
 
   cursor: pointer;
 
   transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.2s ease;
 }
 
 .auth-back-link:hover {
-  color: #2563eb;
-
   background: #eff6ff;
-
-  border-color: #dbeafe;
+  border-color: #bfdbfe;
+  color: #2563eb;
+  transform: translateY(-1px);
 }
 
-
-/* ========================================
+/* ================================
    LOGIN CARD
-======================================== */
+================================ */
 
 .login-card {
   width: 100%;
@@ -139,30 +120,26 @@
   padding: 36px 38px;
 
   background: #ffffff;
-
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e7ebf1;
   border-radius: 18px;
 
-  box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.06);
-
   box-sizing: border-box;
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
 }
 
-
-/* ========================================
+/* ================================
    LOGIN BRAND
-======================================== */
+================================ */
 
 .login-brand {
   text-align: center;
-
-  margin-bottom: 27px;
+  margin-bottom: 28px;
 }
 
-.brand-icon {
-  width: 48px;
-  height: 48px;
+.login-brand .brand-icon {
+  width: 52px;
+  height: 52px;
 
   margin: 0 auto 14px;
 
@@ -170,27 +147,25 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 12px;
-
   background: #2563eb;
   color: #ffffff;
 
-  font-size: 22px;
+  border-radius: 13px;
+
+  font-size: 23px;
   font-weight: 700;
 
-  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.2);
 }
 
 .login-brand h1 {
-  margin: 0 0 6px;
+  margin: 0 0 7px;
 
-  color: #111827;
+  color: #172033;
 
-  font-size: 26px;
+  font-size: 25px;
   line-height: 1.25;
   font-weight: 700;
-
-  letter-spacing: -0.3px;
 }
 
 .login-brand p {
@@ -202,27 +177,46 @@
   line-height: 1.5;
 }
 
+/* ================================
+   LOGIN ERROR
+================================ */
 
-/* ========================================
-   LOGIN FORM
-======================================== */
+.login-error {
+  margin-bottom: 20px;
+  padding: 11px 13px;
 
-.login-form {
-  width: 100%;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+
+  color: #dc2626;
+
+  font-size: 13px;
+  line-height: 1.4;
 }
 
+/* ================================
+   LOGIN FORM
+================================ */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+/* Form group */
+
 .form-group {
-  margin-bottom: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .form-group label {
-  display: block;
-
-  margin-bottom: 7px;
-
   color: #334155;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -233,16 +227,14 @@
   padding: 0 13px;
 
   border: 1px solid #d7dee8;
-  border-radius: 8px;
-
-  outline: none;
+  border-radius: 9px;
 
   background: #ffffff;
-  color: #111827;
+  color: #172033;
 
-  font-family: inherit;
   font-size: 14px;
 
+  outline: none;
   box-sizing: border-box;
 
   transition:
@@ -251,89 +243,58 @@
 }
 
 .form-group input::placeholder {
-  color: #9aa6b5;
-}
-
-.form-group input:hover {
-  border-color: #b8c3d1;
+  color: #94a3b8;
 }
 
 .form-group input:focus {
   border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.09);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-
-/* ========================================
+/* ================================
    LOGIN BUTTON
-======================================== */
+================================ */
 
 .login-button {
   width: 100%;
-  height: 45px;
+  height: 46px;
 
-  margin-top: 5px;
+  margin-top: 4px;
 
   border: none;
-  border-radius: 8px;
+  border-radius: 9px;
 
   background: #2563eb;
   color: #ffffff;
 
-  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
 
   transition:
-    background 0.2s ease,
-    transform 0.1s ease;
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .login-button:hover:not(:disabled) {
   background: #1d4ed8;
-}
-
-.login-button:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
 }
 
 .login-button:disabled {
-  opacity: 0.7;
-
+  opacity: 0.65;
   cursor: not-allowed;
 }
 
-
-/* ========================================
-   LOGIN ERROR
-======================================== */
-
-.login-error {
-  margin-bottom: 16px;
-
-  padding: 10px 12px;
-
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-
-  background: #fef2f2;
-  color: #b91c1c;
-
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-
-/* ========================================
+/* ================================
    LOGIN FOOTER
-======================================== */
+================================ */
 
 .login-footer {
-  margin: 20px 0 0;
+  margin: 25px 0 0;
 
   text-align: center;
 
@@ -343,6 +304,8 @@
 }
 
 .login-footer button {
+  margin-left: 3px;
+
   padding: 0;
 
   border: none;
@@ -350,7 +313,6 @@
 
   color: #2563eb;
 
-  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
 
@@ -358,322 +320,47 @@
 }
 
 .login-footer button:hover {
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
-
-/* ========================================
-   REGISTER PAGE
-======================================== */
-
-.register-page {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 28px 24px 40px;
-
-  background: #f5f7fb;
-
-  box-sizing: border-box;
-}
-
-
-/* ========================================
-   REGISTER CARD
-======================================== */
-
-.register-card {
-  width: 100%;
-  max-width: 450px;
-
-  padding: 36px 38px;
-
-  background: #ffffff;
-
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-
-  box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.06);
-
-  box-sizing: border-box;
-}
-
-
-/* ========================================
-   REGISTER BRAND
-======================================== */
-
-.register-brand {
-  text-align: center;
-
-  margin-bottom: 25px;
-}
-
-.register-brand .brand-icon {
-  width: 48px;
-  height: 48px;
-
-  margin: 0 auto 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 12px;
-
-  background: #2563eb;
-  color: #ffffff;
-
-  font-size: 22px;
-  font-weight: 700;
-
-  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.15);
-}
-
-.register-brand h1 {
-  margin: 0 0 6px;
-
-  color: #111827;
-
-  font-size: 26px;
-  line-height: 1.25;
-  font-weight: 700;
-
-  letter-spacing: -0.3px;
-}
-
-.register-brand p {
-  margin: 0;
-
-  color: #64748b;
-
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-
-/* ========================================
-   REGISTER FORM
-======================================== */
-
-.register-form {
-  width: 100%;
-}
-
-.register-form .form-group {
-  margin-bottom: 15px;
-}
-
-.register-form label {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: #334155;
-
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.register-form input {
-  width: 100%;
-  height: 45px;
-
-  padding: 0 13px;
-
-  border: 1px solid #d7dee8;
-  border-radius: 8px;
-
-  outline: none;
-
-  background: #ffffff;
-  color: #111827;
-
-  font-family: inherit;
-  font-size: 14px;
-
-  box-sizing: border-box;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.register-form input::placeholder {
-  color: #9aa6b5;
-}
-
-.register-form input:hover {
-  border-color: #b8c3d1;
-}
-
-.register-form input:focus {
-  border-color: #2563eb;
-
-  box-shadow:
-    0 0 0 3px rgba(37, 99, 235, 0.09);
-}
-
-
-/* ========================================
-   REGISTER BUTTON
-======================================== */
-
-.register-button {
-  width: 100%;
-  height: 45px;
-
-  margin-top: 5px;
-
-  border: none;
-  border-radius: 8px;
-
-  background: #2563eb;
-  color: #ffffff;
-
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.1s ease;
-}
-
-.register-button:hover:not(:disabled) {
-  background: #1d4ed8;
-}
-
-.register-button:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-.register-button:disabled {
-  opacity: 0.7;
-
-  cursor: not-allowed;
-}
-
-
-/* ========================================
-   REGISTER ERROR
-======================================== */
-
-.register-error {
-  margin-bottom: 15px;
-
-  padding: 10px 12px;
-
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-
-  background: #fef2f2;
-  color: #b91c1c;
-
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-
-/* ========================================
-   REGISTER FOOTER
-======================================== */
-
-.register-footer {
-  margin: 19px 0 0;
-
-  text-align: center;
-
-  color: #64748b;
-
-  font-size: 13px;
-}
-
-.register-footer button {
-  padding: 0;
-
-  border: none;
-  background: transparent;
-
-  color: #2563eb;
-
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-.register-footer button:hover {
-  text-decoration: underline;
-}
-
-
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
+/* ================================
+   RESPONSIVE
+================================ */
 
 @media (max-width: 600px) {
-
-  .login-page,
-  .register-page {
-    padding: 18px 14px 30px;
+  .login-page {
+    padding: 16px 14px 35px;
   }
 
   .auth-header {
-    min-height: 48px;
+    min-height: 60px;
+    margin-bottom: 25px;
+    padding: 0 12px;
+    border-radius: 12px;
+  }
 
-    margin-bottom: 22px;
-
-    padding: 0;
+  .auth-brand-name {
+    font-size: 15px;
   }
 
   .auth-brand-icon {
     width: 34px;
     height: 34px;
-
-    border-radius: 9px;
-
-    font-size: 17px;
-  }
-
-  .auth-brand-name {
     font-size: 16px;
   }
 
   .auth-back-link {
-    padding: 7px 9px;
-
-    font-size: 13px;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
-  .login-card,
-  .register-card {
-    max-width: 100%;
-
-    padding: 28px 22px;
-
-    border-radius: 14px;
+  .login-card {
+    padding: 30px 22px;
+    border-radius: 15px;
   }
 
-  .brand-icon,
-  .register-brand .brand-icon {
-    width: 46px;
-    height: 46px;
-
-    margin-bottom: 12px;
-
-    font-size: 21px;
-  }
-
-  .login-brand h1,
-  .register-brand h1 {
-    font-size: 23px;
+  .login-brand h1 {
+    font-size: 22px;
   }
 }
