@@ -47,16 +47,29 @@ function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-card">
-        {/* Back to Landing Page */}
+      {/* Authentication Header */}
+      <header className="auth-header">
         <button
           type="button"
-          className="back-home-button"
+          className="auth-brand"
           onClick={() => navigate("/")}
         >
-          ← Back to Home
+          <span className="auth-brand-icon">A</span>
+          <span className="auth-brand-name">
+            Apartment Management
+          </span>
         </button>
 
+        <button
+          type="button"
+          className="auth-back-link"
+          onClick={() => navigate("/")}
+        >
+          ← Back to website
+        </button>
+      </header>
+
+      <div className="login-card">
         <div className="login-brand">
           <div className="brand-icon">A</div>
 

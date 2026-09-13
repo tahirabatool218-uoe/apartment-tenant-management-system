@@ -48,16 +48,29 @@ function Register() {
 
   return (
     <div className="register-page">
-      <div className="register-card">
-        {/* Back to Landing Page */}
+      {/* Authentication Header */}
+      <header className="auth-header">
         <button
           type="button"
-          className="back-home-button"
+          className="auth-brand"
           onClick={() => navigate("/")}
         >
-          ← Back to Home
+          <span className="auth-brand-icon">A</span>
+          <span className="auth-brand-name">
+            Apartment Management
+          </span>
         </button>
 
+        <button
+          type="button"
+          className="auth-back-link"
+          onClick={() => navigate("/")}
+        >
+          ← Back to website
+        </button>
+      </header>
+
+      <div className="register-card">
         <div className="register-brand">
           <div className="brand-icon">A</div>
 
