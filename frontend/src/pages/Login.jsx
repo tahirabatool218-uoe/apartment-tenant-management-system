@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import "./Login.css";
+
 import { useAuth } from "../context/AuthContext";
 
 function Login() {
@@ -46,6 +48,15 @@ function Login() {
   return (
     <div className="login-page">
       <div className="login-card">
+        {/* Back to Landing Page */}
+        <button
+          type="button"
+          className="back-home-button"
+          onClick={() => navigate("/")}
+        >
+          ← Back to Home
+        </button>
+
         <div className="login-brand">
           <div className="brand-icon">A</div>
 
@@ -54,11 +65,20 @@ function Login() {
           <p>Sign in to manage your property</p>
         </div>
 
-        {error && <div className="login-error">{error}</div>}
+        {error && (
+          <div className="login-error">
+            {error}
+          </div>
+        )}
 
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form
+          className="login-form"
+          onSubmit={handleSubmit}
+        >
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">
+              Email Address
+            </label>
 
             <input
               id="email"
@@ -71,7 +91,9 @@ function Login() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              Password
+            </label>
 
             <input
               id="password"

@@ -49,6 +49,15 @@ function Register() {
   return (
     <div className="register-page">
       <div className="register-card">
+        {/* Back to Landing Page */}
+        <button
+          type="button"
+          className="back-home-button"
+          onClick={() => navigate("/")}
+        >
+          ← Back to Home
+        </button>
+
         <div className="register-brand">
           <div className="brand-icon">A</div>
 

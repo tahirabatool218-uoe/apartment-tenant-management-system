@@ -20,14 +20,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* Landing Page */}
+        {/* Public Routes */}
         <Route
           path="/"
           element={<LandingPage />}
         />
 
-        {/* Authentication */}
         <Route
           path="/login"
           element={<Login />}
@@ -40,7 +38,6 @@ function App() {
 
         {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
-
           <Route
             path="/dashboard"
             element={<Dashboard />}
@@ -60,9 +57,7 @@ function App() {
             path="/admin-management"
             element={<AdminManagement />}
           />
-
         </Route>
-
       </Routes>
     </BrowserRouter>
   );

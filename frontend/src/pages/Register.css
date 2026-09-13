@@ -102,3 +102,22 @@
   color: #2563eb;
   font-weight: 600;
 }
+.back-home-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.back-home-button:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
