@@ -11,12 +11,14 @@ The **Apartment & Tenant Management System** is a full-stack application built w
 The system is designed around three user roles:
 
 * **Super Admin** — manages administrators and has full management access.
+
 * **Admin** — manages apartments and tenants.
+
 * **User** — browses available apartments and views apartment details.
 
 The backend provides RESTful APIs with JWT authentication, protected routes, role-based authorization, Mongoose models, validation, relationship handling, CORS configuration, and centralized error handling.
 
-The frontend provides a clean dashboard-based interface for management users and a simplified apartment browsing experience for normal users.
+The frontend provides a clean dashboard-based interface for management users and a simplified apartment browsing experience for normal users. A public landing page provides an entry point to the application and navigation to the Login and Register pages.
 
 The application is deployed using **Vercel for the frontend**, **Railway for the backend**, and **MongoDB Atlas for database storage**.
 
@@ -34,17 +36,44 @@ The application is deployed using **Vercel for the frontend**, **Railway for the
 
 ## Features
 
+### Landing Page & Navigation
+
+The application includes a public landing page that provides an entry point for users before authentication.
+
+* Provides application introduction and branding
+
+* Provides navigation to the Login page
+
+* Provides navigation to the Register page
+
+* **Sign In** navigates to the Login page
+
+* **Get Started** navigates to the Register page
+
+* Login and Register pages provide a **Back to Home** button to return to the Landing Page
+
+* Responsive landing page styling
+
 ### Authentication & Authorization
 
 * User registration
+
 * User login
+
 * JWT-based authentication
+
 * Protected API routes
+
 * Role-based authorization
+
 * Secure password hashing with bcrypt
+
 * Authentication token expiration
+
 * Current-user authentication endpoint
+
 * Public registration always creates a normal `user` account
+
 * Role-based frontend redirection after login
 
 ### Apartment Management
@@ -52,22 +81,35 @@ The application is deployed using **Vercel for the frontend**, **Railway for the
 Authorized Admins and Super Admins can:
 
 * Add apartments
+
 * View all apartments
+
 * View apartment details
+
 * Update apartment information
+
 * Delete apartments
+
 * Search apartments
+
 * Filter apartments by status
+
 * Manage apartment availability
+
 * Track apartment occupancy
 
 Apartment information includes:
 
 * Apartment number
+
 * Building
+
 * Floor
+
 * Number of bedrooms
+
 * Monthly rent
+
 * Availability status
 
 ### Tenant Management
@@ -75,18 +117,27 @@ Apartment information includes:
 Admins and Super Admins can:
 
 * Add tenants
+
 * View tenants
+
 * View tenant details
+
 * Update tenant information
+
 * Delete tenants
+
 * Assign tenants to apartments
 
 Tenant information includes:
 
 * Tenant name
+
 * Email
+
 * Phone number
+
 * Assigned apartment
+
 * Move-in date
 
 ### Automatic Apartment Occupancy
@@ -96,8 +147,11 @@ The system automatically maintains apartment occupancy status based on tenant as
 For example:
 
 * When a tenant is assigned to an available apartment → apartment becomes **Occupied**
+
 * When a tenant is removed → apartment becomes **Available**
+
 * When a tenant is moved to another apartment → the previous apartment becomes **Available** and the new apartment becomes **Occupied**
+
 * A tenant cannot be assigned to an already occupied apartment
 
 This keeps the apartment and tenant relationship synchronized.
@@ -107,10 +161,15 @@ This keeps the apartment and tenant relationship synchronized.
 Management users have access to dashboard statistics including:
 
 * Total apartments
+
 * Available apartments
+
 * Occupied apartments
+
 * Total tenants
+
 * Recent apartments
+
 * Recent tenants
 
 ### Admin Management
@@ -118,7 +177,9 @@ Management users have access to dashboard statistics including:
 The **Super Admin** has additional administrative capabilities:
 
 * Create Admin accounts
+
 * View all Admin accounts
+
 * Delete Admin accounts
 
 Normal users cannot create Admin or Super Admin accounts through public registration.
@@ -128,19 +189,29 @@ Normal users cannot create Admin or Super Admin accounts through public registra
 Normal users have a simplified interface where they can:
 
 * Browse apartments
+
 * Search apartments
+
 * Filter apartments
+
 * View apartment details
+
 * Check apartment availability
+
 * Logout
 
 Normal users cannot:
 
 * Create apartments
+
 * Update apartments
+
 * Delete apartments
+
 * Manage tenants
+
 * Access the management dashboard
+
 * Manage Admin accounts
 
 ---
@@ -160,10 +231,15 @@ The highest-level management role.
 Permissions:
 
 * Dashboard access
+
 * Apartment management
+
 * Tenant management
+
 * Admin management
+
 * View apartment information
+
 * Full system management access
 
 ### Admin
@@ -173,8 +249,11 @@ Management-level role for day-to-day apartment and tenant operations.
 Permissions:
 
 * Dashboard access
+
 * Apartment CRUD
+
 * Tenant CRUD
+
 * View apartment information
 
 ### User
@@ -184,8 +263,11 @@ Normal application user.
 Permissions:
 
 * Browse apartments
+
 * Search and filter apartments
+
 * View apartment details
+
 * Logout
 
 ---
@@ -195,40 +277,59 @@ Permissions:
 ### Frontend
 
 * React
+
 * React Router
+
 * Axios
+
 * React Icons
+
 * CSS
+
 * JavaScript / JSX
+
 * Vite
 
 ### Backend
 
 * Node.js
+
 * Express.js
+
 * MongoDB
+
 * Mongoose
+
 * JSON Web Token (JWT)
+
 * bcryptjs
+
 * CORS
+
 * dotenv
 
 ### Database
 
 * MongoDB Atlas
+
 * Mongoose
 
 ### Deployment
 
 * Vercel — Frontend
+
 * Railway — Backend API
+
 * MongoDB Atlas — Database
 
 ### Development Tools
 
 * Visual Studio Code
+
 * MongoDB Compass
+
 * Postman
+
 * Git & GitHub
 
 ---
@@ -287,8 +388,11 @@ The main collections are:
 
 ```text
 apartment_management
+
 ├── users
+
 ├── apartments
+
 └── tenants
 ```
 
@@ -297,17 +401,24 @@ apartment_management
 Main fields:
 
 * `name`
+
 * `email`
+
 * `password`
+
 * `role`
+
 * `createdAt`
+
 * `updatedAt`
 
 Available roles:
 
 ```text
 superadmin
+
 admin
+
 user
 ```
 
@@ -318,18 +429,26 @@ Passwords are securely hashed before being stored in the database.
 Main fields:
 
 * `apartmentNumber`
+
 * `building`
+
 * `floor`
+
 * `bedrooms`
+
 * `rent`
+
 * `status`
+
 * `createdAt`
+
 * `updatedAt`
 
 Apartment status:
 
 ```text
 Available
+
 Occupied
 ```
 
@@ -338,11 +457,17 @@ Occupied
 Main fields:
 
 * `name`
+
 * `email`
+
 * `phone`
+
 * `apartment`
+
 * `moveInDate`
+
 * `createdAt`
+
 * `updatedAt`
 
 The `apartment` field uses a Mongoose reference to the Apartment model.
@@ -355,33 +480,63 @@ The application uses JWT-based authentication.
 
 ### Registration
 
-1. User submits name, email, and password.
-2. Backend validates the request.
-3. Password is hashed using bcrypt.
-4. User is created with the `user` role.
-5. The user is redirected to the login page.
-6. The user can then sign in using the registered credentials.
+1. User accesses the Landing Page.
+
+2. User selects **Get Started**.
+
+3. User is navigated to the Register page.
+
+4. User submits name, email, and password.
+
+5. Backend validates the request.
+
+6. Password is hashed using bcrypt.
+
+7. User is created with the `user` role.
+
+8. The user is redirected to the login page.
+
+9. The user can then sign in using the registered credentials.
+
+10. The Register page provides a **Back to Home** option to return to the Landing Page.
 
 Public registration does not allow users to select or create an Admin or Super Admin role.
 
 ### Login
 
-1. User submits email and password.
-2. Backend finds the user.
-3. Password is verified using bcrypt.
-4. JWT token is generated.
-5. User role is returned with the authenticated user information.
-6. Frontend redirects the user according to their role.
+1. User accesses the Landing Page.
+
+2. User selects **Sign In**.
+
+3. User is navigated to the Login page.
+
+4. User submits email and password.
+
+5. Backend finds the user.
+
+6. Password is verified using bcrypt.
+
+7. JWT token is generated.
+
+8. User role is returned with the authenticated user information.
+
+9. Frontend redirects the user according to their role.
+
+10. The Login page provides a **Back to Home** option to return to the Landing Page.
 
 The current role-based login behavior is:
 
 ```text
 Super Admin / Admin
+
         ↓
+
     Dashboard
 
 User
+
         ↓
+
     Apartments
 ```
 
@@ -393,17 +548,29 @@ The request flow is:
 
 ```text
 Request
+
    ↓
+
 JWT Authentication
+
    ↓
+
 User Verification
+
    ↓
+
 Role Authorization
+
    ↓
+
 Controller
+
    ↓
+
 Database
+
    ↓
+
 Response
 ```
 
@@ -420,8 +587,11 @@ The backend includes middleware for:
 Verifies:
 
 * Authorization header
+
 * JWT token
+
 * Token validity
+
 * User existence
 
 ### Role Authorization Middleware
@@ -452,11 +622,17 @@ The production architecture is:
 
 ```text
 React Frontend
+
      ↓
+
     Axios
+
      ↓
+
 Railway Express API
+
      ↓
+
 MongoDB Atlas
 ```
 
@@ -470,67 +646,131 @@ CORS is configured on the backend to allow communication between the deployed fr
 apartment-tenant-management-system/
 
 ├── backend/
+
 │   ├── config/
+
 │   │   └── db.js
+
 │   ├── controllers/
+
 │   │   ├── apartmentController.js
+
 │   │   ├── authController.js
+
 │   │   ├── dashboardController.js
+
 │   │   ├── tenantController.js
+
 │   │   └── userController.js
+
 │   ├── middleware/
+
 │   │   ├── authMiddleware.js
+
 │   │   └── errorMiddleware.js
+
 │   ├── models/
+
 │   │   ├── Apartment.js
+
 │   │   ├── Tenant.js
+
 │   │   └── User.js
+
 │   ├── routes/
+
 │   │   ├── adminRoutes.js
+
 │   │   ├── apartmentRoutes.js
+
 │   │   ├── authRoutes.js
+
 │   │   ├── dashboardRoutes.js
+
 │   │   └── tenantRoutes.js
+
 │   ├── package.json
+
 │   └── server.js
+
 │
 ├── frontend/
+
 │   ├── public/
+
 │   ├── src/
+
 │   │   ├── assets/
+
 │   │   ├── components/
+
 │   │   │   ├── Header.css
+
 │   │   │   ├── Header.jsx
+
 │   │   │   ├── ProtectedRoute.jsx
+
 │   │   │   ├── Sidebar.css
+
 │   │   │   └── Sidebar.jsx
+
 │   │   ├── context/
+
 │   │   │   └── AuthContext.jsx
+
 │   │   ├── pages/
+
 │   │   │   ├── AdminManagement.css
+
 │   │   │   ├── AdminManagement.jsx
+
 │   │   │   ├── Apartments.css
+
 │   │   │   ├── Apartments.jsx
+
 │   │   │   ├── Dashboard.css
+
 │   │   │   ├── Dashboard.jsx
+
+│   │   │   ├── LandingPage.css
+
+│   │   │   ├── LandingPage.jsx
+
 │   │   │   ├── Login.css
+
 │   │   │   ├── Login.jsx
+
 │   │   │   ├── Register.css
+
 │   │   │   ├── Register.jsx
+
 │   │   │   ├── Tenants.css
+
 │   │   │   └── Tenants.jsx
+
 │   │   ├── services/
+
 │   │   │   └── api.js
+
 │   │   ├── App.css
+
 │   │   ├── App.jsx
+
 │   │   ├── index.css
+
 │   │   └── main.jsx
+
 │   ├── eslint.config.js
+
 │   ├── index.html
+
 │   ├── package.json
+
 │   └── vite.config.js
+
 │
 ├── package.json
+
 └── README.md
 ```
 
@@ -542,7 +782,9 @@ Create a `.env` file inside the backend directory.
 
 ```env
 PORT=5000
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_jwt_secret
 ```
 
@@ -576,6 +818,7 @@ cd apartment-tenant-management-system
 
 ```bash
 cd backend
+
 npm install
 ```
 
@@ -599,6 +842,7 @@ Open another terminal:
 
 ```bash
 cd frontend
+
 npm install
 ```
 
@@ -625,13 +869,21 @@ Authorization: Bearer <JWT_TOKEN>
 The API was designed and tested around:
 
 * Authentication
+
 * Authorization
+
 * Apartment CRUD
+
 * Tenant CRUD
+
 * Apartment/tenant relationship
+
 * Dashboard statistics
+
 * Admin management
+
 * Error responses
+
 * Protected routes
 
 ---
@@ -642,8 +894,11 @@ The system maintains a relationship between tenants and apartments using Mongoos
 
 ```text
 Apartment
+
      ↑
+
      │
+
    Tenant
 ```
 
@@ -658,13 +913,21 @@ This prevents multiple tenants from being assigned to an apartment that is alrea
 The project implements several basic security practices:
 
 * Password hashing with bcrypt
+
 * JWT-based authentication
+
 * Protected API endpoints
+
 * Role-based authorization
+
 * Environment variables for secrets
+
 * Password excluded from authenticated user responses
+
 * Backend-level authorization checks
+
 * CORS configuration for frontend-backend communication
+
 * Public registration restricted to the `user` role
 
 ---
@@ -697,7 +960,9 @@ The application is deployed using the following architecture:
 ### Production Services
 
 * **Frontend:** Vercel
+
 * **Backend:** Railway
+
 * **Database:** MongoDB Atlas
 
 The frontend uses the deployed Railway API as its production backend.
@@ -711,29 +976,59 @@ Environment variables such as `MONGO_URI` and `JWT_SECRET` are configured throug
 This project was developed to practice and demonstrate the following concepts:
 
 * Node.js fundamentals
+
 * Express.js server development
+
 * REST API architecture
+
 * Express routing
+
 * Middleware
+
 * Error handling
+
 * MongoDB
+
 * MongoDB Atlas
+
 * Mongoose
+
 * Schemas and models
+
 * CRUD operations
+
 * MongoDB relationships using references
+
 * JWT authentication
+
 * Password hashing
+
 * Role-based authorization
+
 * Protected routes
+
 * React frontend integration
+
 * Axios API communication
+
 * React Router
+
 * Context API
+
+* Landing page development
+
+* Frontend navigation
+
+* Responsive UI design
+
 * CORS
+
 * Environment variables
+
 * Git and GitHub workflow
+
 * API testing with Postman
+
 * Full-stack deployment using Vercel and Railway
 
 ---
@@ -743,11 +1038,17 @@ This project was developed to practice and demonstrate the following concepts:
 Possible future improvements include:
 
 * Apartment booking/request system
+
 * Tenant payment management
+
 * Rental history
+
 * Notifications
+
 * Advanced reporting
+
 * Profile management
+
 * Production-level validation and monitoring
 
 These are planned improvements and are **not part of the current implementation**.
@@ -759,21 +1060,32 @@ These are planned improvements and are **not part of the current implementation*
 This project fulfills the main requirements of the **Node.js, Express & MongoDB** task:
 
 * ✅ CRUD REST API with Express
+
 * ✅ Mongoose schemas and models
+
 * ✅ MongoDB database integration
+
 * ✅ JWT-based registration and login
+
 * ✅ Authentication middleware
+
 * ✅ Role-based authorization
+
 * ✅ Error handling middleware
+
 * ✅ At least two API resources
+
 * ✅ React frontend connected with REST APIs
+
 * ✅ Deployed frontend and backend
 
 ### Main Resources
 
 ```text
 Users
+
 Apartments
+
 Tenants
 ```
 
