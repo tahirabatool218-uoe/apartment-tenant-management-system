@@ -2,11 +2,11 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 
 import "./App.css";
 
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -21,11 +21,13 @@ function App() {
     <BrowserRouter>
       <Routes>
 
+        {/* Landing Page */}
         <Route
           path="/"
-          element={<Navigate to="/login" replace />}
+          element={<LandingPage />}
         />
 
+        {/* Authentication */}
         <Route
           path="/login"
           element={<Login />}
@@ -36,6 +38,7 @@ function App() {
           element={<Register />}
         />
 
+        {/* Protected Routes */}
         <Route element={<ProtectedRoute />}>
 
           <Route
